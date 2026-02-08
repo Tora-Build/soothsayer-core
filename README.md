@@ -78,12 +78,12 @@ Agent Predictions
 | [adjudicator/](adjudicator/) | Discovery, tracking, scoring, and resolution engine |
 | [docs/](docs/) | Market format, design docs, specifications |
 
-## Supported Chains
+## Deployed On
 
-| Chain | ChainId | Status |
-|-------|---------|--------|
-| Monad Testnet | 10143 | ✅ Primary |
-| Base Sepolia | 84532 | ✅ Testing |
+| Chain | ChainId |
+|-------|---------|
+| Monad Testnet | 10143 |
+| Base Sepolia | 84532 |
 
 ## Future Applications
 

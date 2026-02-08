@@ -17,12 +17,12 @@ Copy the `SKILL.md` file into your agent's skills directory. Compatible with:
 - **Resolve markets** through the adjudicator system
 - **Read structured predictions** from the async protocol
 
-## Supported Chains
+## Deployed On
 
-| Chain | Status |
-|-------|--------|
-| Monad Testnet (10143) | ✅ Primary |
-| Base Sepolia (84532) | ✅ Testing |
+| Chain | ChainId |
+|-------|---------|
+| Monad Testnet | 10143 |
+| Base Sepolia | 84532 |
 
 ## Quick Start
 
