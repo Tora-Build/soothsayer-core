@@ -36,7 +36,7 @@ function createMarket(
     uint64 startTime,              // Trading start (0 = now)
     uint64 deadline,               // Unix timestamp for resolution
     address adjudicator,           // Address that settles (SoothSayer wallet)
-    address guardian,              // Can veto (use same as adjudicator for now)
+    address guardian,              // Can veto; create-market.mjs passes CONTRACTS.ProtocolConfig
     uint256 initialLiquidity,      // Liquidity param b (WAD, e.g. 100e18)
     uint256 adjudicatorAgentId,    // ERC-8004 agent ID (0 to skip)
     uint256 adjudicatorMinValidators  // Min validators (0 to skip)
@@ -61,7 +61,7 @@ const tx = await launchpadEngine.createMarket(
   0, // startTime: now
   Math.floor(new Date(moltbookMarket.deadline).getTime() / 1000), // deadline as unix
   soothsayerWallet, // adjudicator
-  soothsayerWallet, // guardian
+  protocolConfig, // guardian: ProtocolConfig address (create-market.mjs uses CONTRACTS.ProtocolConfig)
   ethers.parseEther("100"), // initialLiquidity: 100 USDC worth
   0, // adjudicatorAgentId
   0  // adjudicatorMinValidators
@@ -97,7 +97,7 @@ Before creating on-chain market, verify:
 3. ≥7 days until deadline
 4. Automated resolution source exists (coingecko, on-chain, etc.)
 
-Use: `python3 scripts/create_market.py graduation <market_id>`
+Use: `python3 adjudicator/scripts/create_market.py graduation <market_id>`
 
 ## Settlement Flow
 
@@ -116,7 +116,7 @@ function settle(Outcome outcome, uint64 tStar) external;
 function finalize() external;
 ```
 
-Outcomes: `0 = YES`, `1 = NO`, `2 = INVALID`
+Outcomes: `0 = NO`, `1 = YES`, `2 = INVALID` (matches `adjudicator/scripts/settler.mjs`)
 
 ## Scripts
 
