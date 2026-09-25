@@ -97,7 +97,7 @@ Before creating on-chain market, verify:
 3. ≥7 days until deadline
 4. Automated resolution source exists (coingecko, on-chain, etc.)
 
-Use: `python3 adjudicator/scripts/create_market.py graduation <market_id>`
+Use: `python3 adjudicator/scripts/create_market.py graduation` (checks every tracked market)
 
 ## Settlement Flow
 
